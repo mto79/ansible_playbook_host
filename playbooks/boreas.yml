@@ -1,0 +1,18 @@
+---
+- hosts: targets
+
+  vars:
+    dump_vars: true
+
+  pre_tasks:
+
+    - name: Test Ansible ping
+      ping:
+
+    - name: Run a command to get target release
+      shell: cat /etc/*ease || sw_vers
+      changed_when: false
+
+  roles:
+    - { role: vendors/linux-system-roles/network, tags: network, system }
+    - { role: vendors/linux-system-roles/timesync, tags: timesync, system }

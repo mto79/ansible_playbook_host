@@ -2,7 +2,7 @@
 config/var/*
 config/ansible.log
 config/known_hosts
-
+ansible.log
 # Ignore uptream code directory
 roles/
 

@@ -1,13 +1,5 @@
-
-# Localhost definitions
-[local]
-local_user	ansible_connection=local ansible_become=false
-
-
-# Target host definitions
 [targets]
-host1	ansible_host=x.x.x.x
-
+boreas
 
 # # Examples
 # ######################################
