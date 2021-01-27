@@ -1,0 +1,19 @@
+---
+# ansible_playbook_host/roles/requirements.yml
+# Author: MTO
+# Description: requirements.yml for host
+#
+- src: https://github.com/linux-system-roles/network.git
+  scm: git
+  version: main
+  name: vendors/linux-system-roles/network
+
+- src: https://github.com/linux-system-roles/timesync.git
+  scm: git
+  version: master
+  name: vendors/linux-system-roles/timesync
+ 
+- src: https://github.com/mto79/ansible_role_system_upgrade.git
+  scm: git
+  version: main
+  name: mto79/system/upgrade

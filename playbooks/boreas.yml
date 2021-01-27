@@ -1,11 +1,15 @@
 ---
-- hosts: targets
-
+# ansible_playbook_host/playboos/boreas.yml
+# Author: MTO
+# Description: Boreas file for ansible_playbook_host
+#
+- name: "BOREAS"
+  hosts: targets
+ 
   vars:
     dump_vars: true
 
   pre_tasks:
-
     - name: Test Ansible ping
       ping:
 
@@ -16,3 +20,4 @@
   roles:
     - { role: vendors/linux-system-roles/network, tags: network, system }
     - { role: vendors/linux-system-roles/timesync, tags: timesync, system }
+    - { role: mto79/system/upgrade, tags: upgrade, system }
