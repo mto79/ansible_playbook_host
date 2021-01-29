@@ -5,9 +5,9 @@ config/known_hosts
 ansible.log
 
 # Ignore upstream code directory
-roles/community*
-roles/vendor*
-roles/mto79*
+roles/*
+!roles/requirements.yml
+
 
 # Ignore generic files
 *.pyc
