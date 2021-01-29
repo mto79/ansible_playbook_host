@@ -1,0 +1,5 @@
+---
+# ansible_playbook_host/vars/main.yml
+# Author: MTO
+# Description: Main vars file for ansible_playbook_host
+#

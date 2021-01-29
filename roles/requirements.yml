@@ -12,7 +12,17 @@
   scm: git
   version: master
   name: vendors/linux-system-roles/timesync
- 
+
+- src: https://github.com/linux-system-roles/kernel_settings.git
+  scm: git
+  version: "master"
+  name: vendors/linux-system-roles/kernel_settings
+
+- src: https://github.com/linux-system-roles/selinux.git
+  scm: git
+  version: "master"
+  name: vendors/linux-system-roles/selinux
+
 - src: https://github.com/mto79/ansible_role_system_upgrade.git
   scm: git
   version: main

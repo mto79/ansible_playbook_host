@@ -17,12 +17,5 @@ network_connections:
       auto6: no
 network_allow_restart: yes
 
-timesync_ntp_servers:
-  - hostname: 0.europe.pool.ntp.org 
-    maxpoll: 6
-  - hostname: 1.europe.pool.ntp.org 
-    maxpoll: 6
-  - hostname: 2.europe.pool.ntp.org 
-    maxpoll: 6
-  - hostname: 3.europe.pool.ntp.org 
-    maxpoll: 6
+system_name: boreas
+system_domain: mto.lan

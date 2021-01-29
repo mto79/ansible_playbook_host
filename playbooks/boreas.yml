@@ -1,23 +1,17 @@
 ---
-# ansible_playbook_host/playboos/boreas.yml
+# ansible_playbook_host/playbooks/boreas.yml
 # Author: MTO
 # Description: Boreas file for ansible_playbook_host
 #
-- name: "BOREAS"
-  hosts: targets
+- name: "HOST: Boreas"
+  hosts: boreas
  
-  vars:
-    dump_vars: true
-
-  pre_tasks:
-    - name: Test Ansible ping
-      ping:
-
-    - name: Run a command to get target release
-      shell: cat /etc/*ease || sw_vers
-      changed_when: false
+  vars_files:
+    - vars/main.yml
 
   roles:
     - { role: vendors/linux-system-roles/network, tags: network, system }
+    - { role: vendors/linux-system-roles/kernel_settings, tags: ['kernel', 'system'] }
+    - { role: vendors/linux-system-roles/selinux, tags: selinux, system }
     - { role: vendors/linux-system-roles/timesync, tags: timesync, system }
     - { role: mto79/system/upgrade, tags: upgrade, system }
