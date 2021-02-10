@@ -17,5 +17,6 @@ network_connections:
       auto6: no
 network_allow_restart: yes
 
-system_name: boreas
 system_domain: mto.lan
+system_name: boreas
+system_nfs_exports: [ "/exports/ovirt *(rw)" ]

@@ -7,7 +7,8 @@ ansible.log
 # Ignore upstream code directory
 roles/*
 !roles/requirements.yml
-
+collections/*
+!collections/requirements.yml
 
 # Ignore generic files
 *.pyc

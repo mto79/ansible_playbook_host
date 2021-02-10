@@ -12,9 +12,11 @@ kernel_settings_sysctl:
     value: 1
 
 system_upgrade_all: "false"
-system_upgrade_bugfix: "false"
+system_upgrade_bugfix: "true"
 system_upgrade_security: "true"
-system_upgrade_only: "false"
+system_upgrade_only: "true"
+system_upgrade_release: "false"
+system_upgrade_release_version: ""
 
 selinux_policy: targeted
 selinux_state: enforcing

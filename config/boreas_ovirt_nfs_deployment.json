@@ -1,0 +1,8 @@
+{
+    "he_bridge_if": "eth0",
+    "he_fqdn": "he-engine.mto.local",
+    "he_vm_mac_addr": "d8:9e:f3:ee:8b:6d",
+    "he_domain_type": "nfs",
+    "he_storage_domain_addr": "192.168.178.200",
+    "he_storage_domain_path": "/exports/ovirt"
+}

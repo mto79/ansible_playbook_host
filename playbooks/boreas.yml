@@ -7,11 +7,45 @@
   hosts: boreas
  
   vars_files:
-    - vars/main.yml
+    - ../vars/main.yml
 
+  pre_tasks:
+    - name: "Ensure group 'kvm' exists with correct gid"
+      ansible.builtin.group:
+        name: kvm
+        state: present
+        gid: 36
+    
+    - name: "Add the user 'vdsm' with uid and a primary group of 'kvm'"
+      ansible.builtin.user:
+        name: vdsm
+        state: present
+        uid: 36
+        group: kvm
+        create_home: no
+      
+    - name: "Create a NFS storage oVirt directory if it does not exist"
+      ansible.builtin.file:
+        path: /exports/ovirt
+        state: directory
+        mode: '0755'
+        owner: vdsm
+        group: kvm
+
+    - name: "Set virt_use_nfs flag on and keep it persistent across reboots"
+      ansible.posix.seboolean:
+        name: virt_use_nfs
+        state: yes
+        persistent: yes
+
+ 
   roles:
     - { role: vendors/linux-system-roles/network, tags: network, system }
     - { role: vendors/linux-system-roles/kernel_settings, tags: ['kernel', 'system'] }
     - { role: vendors/linux-system-roles/selinux, tags: selinux, system }
     - { role: vendors/linux-system-roles/timesync, tags: timesync, system }
     - { role: mto79/system/upgrade, tags: upgrade, system }
+    - { role: mto79/system/nfs, tags: nfs, system } 
+#    - { role: hosted_engine_setup, tags: ovirt }
+#  collections:
+#    - ovirt.ovirt
